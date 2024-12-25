@@ -3,7 +3,7 @@
     <h1>Create a Password</h1>
     <input type="password" v-model="password" placeholder="Enter password" />
     <input type="password" v-model="confirmPassword" placeholder="Confirm password" />
-    <button @click="save">Save</button>
+    <SubmitButton @click="save">Save</SubmitButton>
     <p v-if="error">{{ error }}</p>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import SubmitButton from '../components/SubmitButton.vue'
 
 const password = ref('')
 const confirmPassword = ref('')

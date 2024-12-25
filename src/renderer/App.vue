@@ -14,5 +14,7 @@
 body {
   margin: 0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  height: 100%;
+  overflow: hidden;
 }
 </style>

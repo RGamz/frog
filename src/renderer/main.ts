@@ -4,9 +4,9 @@ import App from './App.vue'
 import './assets/main.css'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
-import PasswordSetup from './components/PasswordSetup.vue'
-import PasswordPrompt from './components/PasswordPrompt.vue'
-import TextEditor from './components/TextEditor.vue'
+import PasswordSetup from './views/PasswordSetup.vue'
+import PasswordPrompt from './views/PasswordPrompt.vue'
+import TextEditor from './views/TextEditor.vue'
 
 const routes = [
   { path: '/passwordSetup', component: PasswordSetup },

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="passwordPromt">
     <h1>Enter your Password</h1>
     <input type="password" v-model="password" placeholder="Password" />
-    <button @click="login">Login</button>
+    <SubmitButton @click="login"></SubmitButton>
     <p v-if="error">{{ error }}</p>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import SubmitButton from '../components/SubmitButton.vue'
 
 const password = ref('')
 const error = ref('')
