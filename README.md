@@ -20,10 +20,16 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Run vite vue dev server
 
 ```sh
 npm run dev
+```
+
+### Run electron
+
+```sh
+npm run start-electron
 ```
 
 ### Type-Check, Compile and Minify for Production
