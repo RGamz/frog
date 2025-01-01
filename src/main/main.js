@@ -27,8 +27,7 @@ function createWindow(view) {
     }
   });
   
-  // If you're running the development server at localhost:4000
-  // Adjust this URL if needed (for production builds or different ports)
+  // Run the development server at localhost:4000
   mainWindow.loadURL('http://localhost:4000/#/' + view);
 }
 
