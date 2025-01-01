@@ -3,7 +3,9 @@
     <h1>Enter your Password</h1>
     <input type="password" v-model="password" placeholder="Password" />
     <SubmitButton @click="login"></SubmitButton>
-    <p v-if="error">{{ error }}</p>
+    <div class="error-container">
+      <p v-if="error">{{ error }}</p>
+    </div>
   </div>
 </template>
 
@@ -38,5 +40,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+}
+
+.error-container {
+  min-height: 10vh; /* Enough for one line of error text */
 }
 </style>
