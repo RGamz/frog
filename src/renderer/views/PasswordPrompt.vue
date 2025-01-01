@@ -8,20 +8,35 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import SubmitButton from '../components/SubmitButton.vue'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import SubmitButton from "../components/SubmitButton.vue";
 
-const password = ref('')
-const error = ref('')
-const router = useRouter()
+const password = ref("");
+const error = ref("");
+const router = useRouter();
 
 async function login() {
-  const valid = await window.api.verifyPassword(password.value)
+  const valid = await window.api.verifyPassword(password.value);
   if (valid) {
-    router.push('/textEditor?pw=' + encodeURIComponent(password.value))
+    router.push("/textEditor?pw=" + encodeURIComponent(password.value));
   } else {
-    error.value = 'Invalid password'
+    error.value = "Invalid password";
   }
 }
 </script>
+
+<style lang="css">
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.passwordPromt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+</style>
