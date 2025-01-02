@@ -22,5 +22,7 @@ export default {};
   padding: 15px;
   font-size: 16px;
   border-radius: 4px;
+  height: 70vh;
+  width: 90vw;
 }
 </style>

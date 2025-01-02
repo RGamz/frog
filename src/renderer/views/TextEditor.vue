@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text_editor">
     <TextArea v-model="text"></TextArea>
     <SubmitButton @click="saveNotes">Save</SubmitButton>
   </div>
@@ -25,3 +25,14 @@ async function saveNotes() {
   alert("Notes saved securely!");
 }
 </script>
+
+<style scoped>
+.text_editor {
+  /* Fill the entire window, for example */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0; /* reset default margin if needed */
+}
+</style>

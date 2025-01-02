@@ -28,7 +28,7 @@ async function login() {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 body {
   display: flex;
   flex-direction: column;
