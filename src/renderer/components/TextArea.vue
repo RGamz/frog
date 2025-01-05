@@ -5,13 +5,25 @@
         class="form-control textarea"
         placeholder="Enter the text to encrypt"
         id="textToEncrypt"
+        :value="modelValue"
+        @input="onInput"
       ></textarea>
     </div>
   </form>
 </template>
 
-<script lang="ts">
-export default {};
+<script setup>
+import { defineProps, defineEmits } from "vue";
+
+const props = defineProps({
+  modelValue: String,
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+function onInput(event) {
+  emit("update:modelValue", event.target.value);
+}
 </script>
 
 <style scoped>
