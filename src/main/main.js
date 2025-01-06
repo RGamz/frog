@@ -2,19 +2,33 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 import fs from 'fs-extra';
 import * as cryptoUtil from '../utils/crypto.js';
-
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import dotenv from "dotenv";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Disable hardware acceleration before app is ready
+app.disableHardwareAcceleration();
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const userDataPath = app.getPath('userData');
+const passwordFilePath = path.join(userDataPath, 'master-password.json');
+const ENCODING = 'utf8';
+
+// load env variables
+dotenv.config();
+if (!process.env.USER_ENCRYPTED_FILE_PATH) {
+  console.error('Error: USER_ENCRYPTED_FILE_PATH is not defined in the .env file.');
+  console.warn('Please check your .env file and set the USER_ENCRYPTED_FILE_PATH variable.');
+  process.exit(1);
+}
+
+console.log('User Data Path:', userDataPath);
+console.info('Password File Path:', passwordFilePath);
 
 let mainWindow;
-const userDataPath = app.getPath('userData');
 const passwordFile = path.join(userDataPath, 'password.enc');
 const notesFile = path.join(userDataPath, 'notes.enc');
-
-console.log(passwordFile);
+let tray = null; // Tray should be initialized properly
 
 function createWindow(view) {
   mainWindow = new BrowserWindow({

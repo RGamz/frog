@@ -1,28 +1,40 @@
 <template>
-    <form class="form">
-        <div class="form-group flex-grow-1 w-100">
-            <textarea class="form-control textarea" placeholder="Enter the text to encrypt" id="textToEncrypt"></textarea>
-        </div>
-    </form>
+  <form class="form">
+    <div class="form-group flex-grow-1 w-100">
+      <textarea
+        class="form-control textarea"
+        placeholder="Enter the text to encrypt"
+        id="textToEncrypt"
+        :value="modelValue"
+        @input="onInput"
+      ></textarea>
+    </div>
+  </form>
 </template>
 
-<script lang="ts">
+<script setup>
+import { defineProps, defineEmits } from "vue";
 
-  export default {
-    
-  }
+const props = defineProps({
+  modelValue: String,
+});
 
+const emit = defineEmits(["update:modelValue"]);
+
+function onInput(event) {
+  emit("update:modelValue", event.target.value);
+}
 </script>
 
 <style scoped>
-  .textarea {
-    flex: 1;
-    resize: none; /* Prevent manual resizing */
-    background-color: #e3eaf5;
-    border: 1px solid #b0c4de;
-    color: #333333;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 4px;
-  }
+.textarea {
+  background-color: #e3eaf5;
+  border: 1px solid #b0c4de;
+  color: #333333;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 70vh;
+  width: 90vw;
+}
 </style>

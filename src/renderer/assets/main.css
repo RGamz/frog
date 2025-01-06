@@ -8,9 +8,16 @@
   font-weight: normal;
 }
 
-.background {
-  background-image: "./logo.png";
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+.background_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex: 1;
+}
+
+.background_image img {
+  flex-shrink: 0;
+  width: 30%;
+  height: 30%;
 }
